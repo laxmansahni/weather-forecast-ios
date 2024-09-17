@@ -14,8 +14,8 @@ struct CurrentWeather: Codable {
 
 // MARK: - Current
 struct Current: Codable {
-    let lastUpdatedEpoch: Int
-    let lastUpdated: String
+    let lastUpdatedEpoch: Int?
+    let lastUpdated: String?
     let tempC, tempF: Double
     let isDay: Int
     let condition: Condition
@@ -33,7 +33,11 @@ struct Current: Codable {
     let dewpointF: Double
     let visKM, visMiles, uv: Double
     let gustMph, gustKph: Double
-
+    let timeEpoch: Int?
+    let time: String?
+    let snowCM, willItRain, chanceOfRain, willItSnow: Int?
+    let chanceOfSnow: Int?
+    
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
         case lastUpdated = "last_updated"
@@ -63,6 +67,13 @@ struct Current: Codable {
         case uv
         case gustMph = "gust_mph"
         case gustKph = "gust_kph"
+        case timeEpoch = "time_epoch"
+        case time
+        case snowCM = "snow_cm"
+        case willItRain = "will_it_rain"
+        case chanceOfRain = "chance_of_rain"
+        case willItSnow = "will_it_snow"
+        case chanceOfSnow = "chance_of_snow"
     }
 }
 

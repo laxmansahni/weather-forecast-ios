@@ -1,5 +1,5 @@
 //
-//  CurrentWeatherViewModel.swift
+//  ForecastDaysViewModel.swift
 //  weather-forecast-ios
 //
 //  Created by Laxman on 17/09/24.
@@ -10,7 +10,7 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-class CurrentWeatherViewModel {
+class ForecastDaysViewModel {
     
     // default City = Dubai
     private let defaultCity = "Dubai"
@@ -23,14 +23,14 @@ class CurrentWeatherViewModel {
     func getWeatherData() {
         if isConnected {
             uiActions.onNext(.showLoading)
-            APIService.getCurrentWeatherData(city: defaultCity) { (currentWeather, error) in
+            APIService.getForecastWeatherData(city: defaultCity) { (forecastWeather, error) in
                 self.uiActions.onNext(.hideLoading)
-                guard let weather = currentWeather else {
+                guard let weather = forecastWeather else {
                   //show error
                     self.uiActions.onNext(.showError(error: error!))
                     return
                 }
-                self.uiActions.onNext(.showWeather(currentWeather: weather))
+                self.uiActions.onNext(.showWeather(forecastWeather: weather))
             }
         }
     }
@@ -39,6 +39,6 @@ class CurrentWeatherViewModel {
         case showLoading
         case hideLoading
         case showError(error: Error)
-        case showWeather(currentWeather: CurrentWeather)
+        case showWeather(forecastWeather: ForecastDays)
     }
 }

@@ -21,19 +21,43 @@ class APIService :  NSObject {
         request.responseDecodable(of: CurrentWeather.self) { response in
             
             switch response.result {
-                        
-                    case .success(let currentWeather):
- 
+                
+            case .success(let currentWeather):
+                
                 completion(currentWeather, nil)
                 
-                    case .failure(let productFetcherror):
-                        
-                        print(productFetcherror.localizedDescription)
-                completion(nil, productFetcherror)
-                    }
+            case .failure(let weatherFetcherror):
+
+                completion(nil, weatherFetcherror)
+            }
             
-//            guard let currentWeather = response.value else { return }
-//            completion(currentWeather)
         }
     }
+    
+    
+    class func getForecastWeatherData(city: String, completion : @escaping (_ forecastWeather: ForecastDays?, _ error: Error?) -> ()){
+        let parameters: [String: Any] = [
+            "key": Constants.strings.apiKey,
+            "q": city,
+            "days": 5,
+            "aqi": "no",
+            "alerts": "no",
+        ]
+         let url = ServiceType.forecast.completeUrl
+         let request = AF.request(url, parameters: parameters)
+         request.responseDecodable(of: ForecastDays.self) { response in
+             
+             switch response.result {
+                 
+             case .success(let forecastWeather):
+                 
+                 completion(forecastWeather, nil)
+                 
+             case .failure(let weatherFetcherror):
+
+                 completion(nil, weatherFetcherror)
+             }
+             
+         }
+     }
 }

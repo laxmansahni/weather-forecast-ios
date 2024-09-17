@@ -1,8 +1,8 @@
 //
-//  CurrentWeatherViewController.swift
+//  ForecastDaysViewController.swift
 //  weather-forecast-ios
 //
-//  Created by Laxman on 16/09/24.
+//  Created by Laxman on 17/09/24.
 //
 
 import UIKit
@@ -11,17 +11,16 @@ import RxCocoa
 import SDWebImage
 import SwiftLoader
 
-class CurrentWeatherViewController: UIViewController {
+class ForecastDaysViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var conditionIcon: UIImageView!
-    @IBOutlet weak var forecastWeatherButton: UIButton!
     
     // MARK: - Properties
-    private let currentWeatherViewModel = CurrentWeatherViewModel()
+    private let forecastDaysViewModel = ForecastDaysViewModel()
     let connectionManager = ConnectionManager.shared
     var disposeBag = DisposeBag()
     
@@ -37,17 +36,17 @@ class CurrentWeatherViewController: UIViewController {
         setupViewWithRx()
         /// Usage of ConnectionManager class
         if connectionManager.isConnected {
-            self.currentWeatherViewModel.isConnected = true
+            self.forecastDaysViewModel.isConnected = true
         } else {
-            self.currentWeatherViewModel.isConnected = false
+            self.forecastDaysViewModel.isConnected = false
         }
-        currentWeatherViewModel.getWeatherData()
+        forecastDaysViewModel.getWeatherData()
     }
     
     
     private func setupViewWithRx() {
         
-        currentWeatherViewModel.uiActions
+        forecastDaysViewModel.uiActions
             .bind(onNext: { [weak self] uiAction in
                 
                 guard let strongSelf = self else { return }
@@ -76,7 +75,7 @@ class CurrentWeatherViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    private func showDetailsView(currentWeather: CurrentWeather) {
+    private func showDetailsView(currentWeather: ForecastDays) {
         locationLabel.text = "\(currentWeather.location.name), \(currentWeather.location.region), \(currentWeather.location.country)"
         temperatureLabel.text = "\(currentWeather.current.tempC)°C"
         conditionLabel.text = "\(currentWeather.current.condition.text)"
@@ -99,7 +98,6 @@ class CurrentWeatherViewController: UIViewController {
         temperatureLabel.isHidden = false
         conditionLabel.isHidden = false
         conditionIcon.isHidden = false
-        forecastWeatherButton.isHidden = false
     }
     
     private func hideWeatherView() {
@@ -107,18 +105,11 @@ class CurrentWeatherViewController: UIViewController {
         temperatureLabel.isHidden = true
         conditionLabel.isHidden = true
         conditionIcon.isHidden = true
-        forecastWeatherButton.isHidden = true
     }
     
     private func showErrorAlert(error: Error){
         let dialogMessage = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         dialogMessage.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in }))
         self.present(dialogMessage, animated: true, completion: nil)
-    }
-    
-    // MARK: - Actions
-    @IBAction func forecastWeatherButtonClicked(_ sender: Any) {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "ForecastDaysViewController") as? ForecastDaysViewController else { return }
-        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
