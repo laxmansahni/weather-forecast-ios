@@ -75,7 +75,7 @@ In Swift, there are two very common implementations of this pattern: Extensions 
 Cloning or downloading the repository
 
 - Go to working directory
-- Open posts-ios.xcodeproj
+- Open weather-forecast-ios.xcodeproj
 - Use command + B or Product -> Build to build the project
 - Press run icon in Xcode or command + R to run the project on Simulator
 
@@ -83,11 +83,11 @@ Cloning or downloading the repository
 
 - Make sure command-line tools of Xcode is installed
 - Go to working Directory
-- xcodebuild -scheme posts-ios build -allowProvisioningUpdates
+- xcodebuild -scheme weather-forecast-ios build -allowProvisioningUpdates
 
 ## Step to static code coverage
 
-- Open posts-ios.xcodeproj
+- Open weather-forecast-ios.xcodeproj
 - Use Command+Shift+B or Product+Analyze to analyze the project
 
 

@@ -12,6 +12,7 @@
 		4B1519B42C9890F000AA8A47 /* RxSwift+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1519A22C9890F000AA8A47 /* RxSwift+Extension.swift */; };
 		4B1519B62C9890F000AA8A47 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1519A52C9890F000AA8A47 /* CoreDataStack.swift */; };
 		4B1519BD2C9891FB00AA8A47 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 4B1519BC2C9891FB00AA8A47 /* RxGesture */; };
+		4B2604A12C99829B00B43451 /* weather-forecast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B26049F2C99829B00B43451 /* weather-forecast.xcdatamodeld */; };
 		4B7393C92C987C1400C64DE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7393C82C987C1400C64DE0 /* AppDelegate.swift */; };
 		4B7393CB2C987C1400C64DE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7393CA2C987C1400C64DE0 /* SceneDelegate.swift */; };
 		4B7393CD2C987C1400C64DE0 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7393CC2C987C1400C64DE0 /* CurrentWeatherViewController.swift */; };
@@ -25,6 +26,8 @@
 		4BAB1D022C9922C800B92992 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB1D012C9922C800B92992 /* CurrentWeatherViewModel.swift */; };
 		4BAB1D052C99558900B92992 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4BAB1D042C99558900B92992 /* SDWebImage */; };
 		4BAB1D082C99609E00B92992 /* SwiftLoader in Frameworks */ = {isa = PBXBuildFile; productRef = 4BAB1D072C99609E00B92992 /* SwiftLoader */; };
+		4BD3312C2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3312A2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift */; };
+		4BD3312D2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3312B2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift */; };
 		4BFF01162C989FD5009DE8CF /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF01152C989FD5009DE8CF /* ServiceType.swift */; };
 		4BFF01182C98A488009DE8CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF01172C98A488009DE8CF /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +37,7 @@
 		4B1519A12C9890F000AA8A47 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		4B1519A22C9890F000AA8A47 /* RxSwift+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extension.swift"; sourceTree = "<group>"; };
 		4B1519A52C9890F000AA8A47 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4B2604A02C99829B00B43451 /* weather-forecast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "weather-forecast.xcdatamodel"; sourceTree = "<group>"; };
 		4B7393C52C987C1400C64DE0 /* weather-forecast-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-forecast-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7393C82C987C1400C64DE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B7393CA2C987C1400C64DE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		4B7393D62C987C1600C64DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BAB1CFF2C99199B00B92992 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4BAB1D012C9922C800B92992 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		4BD3312A2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4BD3312B2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BFF01152C989FD5009DE8CF /* ServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
 		4BFF01172C98A488009DE8CF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				4BAB1CFF2C99199B00B92992 /* CurrentWeather.swift */,
+				4BD3312A2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift */,
+				4BD3312B2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 				4B7393D12C987C1600C64DE0 /* Assets.xcassets */,
 				4B7393D32C987C1600C64DE0 /* LaunchScreen.storyboard */,
 				4B7393D62C987C1600C64DE0 /* Info.plist */,
+				4B26049F2C99829B00B43451 /* weather-forecast.xcdatamodeld */,
 			);
 			path = "weather-forecast-ios";
 			sourceTree = "<group>";
@@ -240,6 +249,9 @@
 				4B1519B62C9890F000AA8A47 /* CoreDataStack.swift in Sources */,
 				4BFF01182C98A488009DE8CF /* Constants.swift in Sources */,
 				4BAB1D002C99199B00B92992 /* CurrentWeather.swift in Sources */,
+				4BD3312C2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift in Sources */,
+				4BD3312D2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift in Sources */,
+				4B2604A12C99829B00B43451 /* weather-forecast.xcdatamodeld in Sources */,
 				4B1519B32C9890F000AA8A47 /* ConnectionManager.swift in Sources */,
 				4B7393CD2C987C1400C64DE0 /* CurrentWeatherViewController.swift in Sources */,
 				4B7393C92C987C1400C64DE0 /* AppDelegate.swift in Sources */,
@@ -546,6 +558,20 @@
 			productName = SwiftLoader;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		4B26049F2C99829B00B43451 /* weather-forecast.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4B2604A02C99829B00B43451 /* weather-forecast.xcdatamodel */,
+			);
+			currentVersion = 4B2604A02C99829B00B43451 /* weather-forecast.xcdatamodel */;
+			name = "weather-forecast.xcdatamodeld";
+			path = "/Users/laxman/Documents/workspace/weather-forecast-ios/weather-forecast-ios/weather-forecast.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4B7393BD2C987C1400C64DE0 /* Project object */;
 }
