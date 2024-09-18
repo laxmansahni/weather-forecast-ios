@@ -15,9 +15,7 @@ class ForecastDaysViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var conditionLabel: UILabel!
-    @IBOutlet weak var conditionIcon: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     private let forecastDaysViewModel = ForecastDaysViewModel()
@@ -32,6 +30,8 @@ class ForecastDaysViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "Forecast Days"
+        setupTableView()
         configureShowLoader()
         setupViewWithRx()
         /// Usage of ConnectionManager class
@@ -43,6 +43,13 @@ class ForecastDaysViewController: UIViewController {
         forecastDaysViewModel.getWeatherData()
     }
     
+    // MARK: - Methods
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "ForecastTableViewCell", bundle: nil), forCellReuseIdentifier: ForecastTableViewCell.identifier)
+        tableView.rowHeight = 195
+        tableView.estimatedRowHeight = 195
+       
+    }
     
     private func setupViewWithRx() {
         
@@ -69,17 +76,28 @@ class ForecastDaysViewController: UIViewController {
                 case .showError(let error):
                     strongSelf.showErrorAlert(error: error)
                     break
+                case .reloadForecast:
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 case .showWeather(let currentWeather):
                     self?.showDetailsView(currentWeather: currentWeather)
                 }
             }).disposed(by: disposeBag)
+        
+        // List of forecast days
+        forecastDaysViewModel.forecastRowItems
+            .bind(to: tableView.rx.items) { (tableView, index, rowViewModel) -> UITableViewCell in
+                guard let cellIdentifier = rowViewModel.cellIdentifier,
+                      cellIdentifier.count > 0,
+                      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? BaseTableViewCell else { return UITableViewCell() }
+                cell.setupCell(rowViewModel: rowViewModel)
+                return cell
+            }.disposed(by: disposeBag)
     }
     
     private func showDetailsView(currentWeather: ForecastDays) {
         locationLabel.text = "\(currentWeather.location.name), \(currentWeather.location.region), \(currentWeather.location.country)"
-        temperatureLabel.text = "\(currentWeather.current.tempC)°C"
-        conditionLabel.text = "\(currentWeather.current.condition.text)"
-        conditionIcon.sd_setImage(with: URL(string: "https:\(currentWeather.current.condition.icon)"), placeholderImage: UIImage(#imageLiteral(resourceName: "partly_cloudy")))
     }
     
     private func configureShowLoader() {
@@ -95,16 +113,10 @@ class ForecastDaysViewController: UIViewController {
     
     private func showWeatherView() {
         locationLabel.isHidden = false
-        temperatureLabel.isHidden = false
-        conditionLabel.isHidden = false
-        conditionIcon.isHidden = false
     }
     
     private func hideWeatherView() {
         locationLabel.isHidden = true
-        temperatureLabel.isHidden = true
-        conditionLabel.isHidden = true
-        conditionIcon.isHidden = true
     }
     
     private func showErrorAlert(error: Error){

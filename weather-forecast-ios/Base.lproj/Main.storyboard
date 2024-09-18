@@ -108,36 +108,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6G-Lm-GdZ">
-                                        <rect key="frame" x="175.66666666666666" y="49" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-0x-imx">
-                                        <rect key="frame" x="175.66666666666666" y="78" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CZg-6J-308">
-                                        <rect key="frame" x="164.66666666666666" y="107" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="3Xf-Im-6nF"/>
-                                            <constraint firstAttribute="width" constant="64" id="P7t-bI-fgf"/>
-                                        </constraints>
-                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-b2-oIn">
+                                        <rect key="frame" x="0.0" y="49" width="393" height="710"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="CZg-6J-308" firstAttribute="top" secondItem="Qes-0x-imx" secondAttribute="bottom" constant="8" id="0h8-Cy-uzg"/>
+                                    <constraint firstItem="9Z0-b2-oIn" firstAttribute="top" secondItem="Ega-Pg-PTh" secondAttribute="bottom" constant="8" id="1Kj-cm-Ik1"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Z0-b2-oIn" secondAttribute="bottom" id="AuU-ow-PId"/>
                                     <constraint firstItem="Ega-Pg-PTh" firstAttribute="top" secondItem="goM-yJ-TVD" secondAttribute="top" constant="20" id="Zg2-5S-1hR"/>
-                                    <constraint firstItem="Qes-0x-imx" firstAttribute="centerX" secondItem="goM-yJ-TVD" secondAttribute="centerX" id="a3U-0r-bgb"/>
-                                    <constraint firstItem="Qes-0x-imx" firstAttribute="top" secondItem="Z6G-Lm-GdZ" secondAttribute="bottom" constant="8" id="e1r-pp-eAO"/>
                                     <constraint firstItem="Ega-Pg-PTh" firstAttribute="centerX" secondItem="goM-yJ-TVD" secondAttribute="centerX" id="gyK-xY-Lhm"/>
-                                    <constraint firstItem="Z6G-Lm-GdZ" firstAttribute="top" secondItem="Ega-Pg-PTh" secondAttribute="bottom" constant="8" id="i2q-9O-jll"/>
-                                    <constraint firstItem="Z6G-Lm-GdZ" firstAttribute="centerX" secondItem="goM-yJ-TVD" secondAttribute="centerX" id="lKR-Lg-wyE"/>
-                                    <constraint firstItem="CZg-6J-308" firstAttribute="centerX" secondItem="goM-yJ-TVD" secondAttribute="centerX" id="nGe-Gi-HSC"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Z0-b2-oIn" secondAttribute="trailing" id="iLK-LX-MMY"/>
+                                    <constraint firstItem="9Z0-b2-oIn" firstAttribute="leading" secondItem="goM-yJ-TVD" secondAttribute="leading" id="vOK-f8-EDY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -151,10 +134,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="conditionIcon" destination="CZg-6J-308" id="00e-5Y-GYC"/>
-                        <outlet property="conditionLabel" destination="Qes-0x-imx" id="5aU-oU-ysU"/>
                         <outlet property="locationLabel" destination="Ega-Pg-PTh" id="UTr-vq-QkG"/>
-                        <outlet property="temperatureLabel" destination="Z6G-Lm-GdZ" id="Nxc-H2-KMh"/>
+                        <outlet property="tableView" destination="9Z0-b2-oIn" id="JlK-HB-xdx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMM-GU-63j" sceneMemberID="firstResponder"/>
