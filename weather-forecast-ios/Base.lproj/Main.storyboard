@@ -38,6 +38,13 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="DZ7-zZ-kjh">
                                                 <rect key="frame" x="328" y="11" width="17" height="18"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-0w-8N7">
+                                                <rect key="frame" x="331" y="0.0" width="30" height="40"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="searchButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LiA-s2-4ND"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -45,14 +52,17 @@
                                             <constraint firstItem="DZ7-zZ-kjh" firstAttribute="leading" secondItem="g2K-L8-kvd" secondAttribute="trailing" constant="16" id="30c-oG-KSh">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="32"/>
                                             </constraint>
+                                            <constraint firstItem="JVh-0w-8N7" firstAttribute="top" secondItem="h6s-1P-zGb" secondAttribute="top" id="Jkw-JO-IHz"/>
                                             <constraint firstAttribute="height" constant="40" id="KPH-Qa-3jD">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="80"/>
                                             </constraint>
                                             <constraint firstAttribute="bottom" secondItem="g2K-L8-kvd" secondAttribute="bottom" id="Pdn-tz-Wg4"/>
+                                            <constraint firstAttribute="trailing" secondItem="JVh-0w-8N7" secondAttribute="trailing" id="Pxj-7x-1OE"/>
                                             <constraint firstItem="g2K-L8-kvd" firstAttribute="leading" secondItem="h6s-1P-zGb" secondAttribute="leading" constant="16" id="Va4-rj-8gn">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="32"/>
                                             </constraint>
                                             <constraint firstItem="DZ7-zZ-kjh" firstAttribute="centerY" secondItem="h6s-1P-zGb" secondAttribute="centerY" id="lGb-Bk-X5r"/>
+                                            <constraint firstAttribute="bottom" secondItem="JVh-0w-8N7" secondAttribute="bottom" id="nMd-xW-s8S"/>
                                             <constraint firstAttribute="trailing" secondItem="DZ7-zZ-kjh" secondAttribute="trailing" constant="16" id="pBG-K6-sDx">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="32"/>
                                             </constraint>

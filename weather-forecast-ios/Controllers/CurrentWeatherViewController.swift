@@ -121,4 +121,9 @@ class CurrentWeatherViewController: UIViewController {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "ForecastDaysViewController") as? ForecastDaysViewController else { return }
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    // MARK: - Actions
+    @IBAction func searchButtonClicked(_ sender: Any) {
+       print("searchButton Clicked")
+    }
 }
