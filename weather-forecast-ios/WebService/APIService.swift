@@ -60,4 +60,28 @@ class APIService :  NSObject {
              
          }
      }
+    
+    
+    class func getSearchCityData(city: String, completion : @escaping (_ cityList: CityList?, _ error: Error?) -> ()){
+        let parameters: [String: Any] = [
+            "key": Constants.strings.apiKey,
+            "q": city,
+        ]
+        let url = ServiceType.search.completeUrl
+         let request = AF.request(url, parameters: parameters)
+         request.responseDecodable(of: CityList.self) { response in
+             
+             switch response.result {
+                 
+             case .success(let cityList):
+                 
+                 completion(cityList, nil)
+                 
+             case .failure(let cityFetcherror):
+
+                 completion(nil, cityFetcherror)
+             }
+             
+         }
+     }
 }

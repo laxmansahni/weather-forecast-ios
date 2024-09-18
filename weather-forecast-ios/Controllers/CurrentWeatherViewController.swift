@@ -19,6 +19,8 @@ class CurrentWeatherViewController: UIViewController {
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var conditionIcon: UIImageView!
     @IBOutlet weak var forecastWeatherButton: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     private let currentWeatherViewModel = CurrentWeatherViewModel()
@@ -33,6 +35,7 @@ class CurrentWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupTableView()
         configureShowLoader()
         setupViewWithRx()
         /// Usage of ConnectionManager class
@@ -44,6 +47,13 @@ class CurrentWeatherViewController: UIViewController {
         currentWeatherViewModel.getWeatherData()
     }
     
+    // MARK: - Methods
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: CityTableViewCell.identifier)
+        tableView.rowHeight = 150
+        tableView.estimatedRowHeight = 150
+       
+    }
     
     private func setupViewWithRx() {
         
@@ -70,10 +80,24 @@ class CurrentWeatherViewController: UIViewController {
                 case .showError(let error):
                     strongSelf.showErrorAlert(error: error)
                     break
+                case .reloadCities:
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 case .showWeather(let currentWeather):
                     self?.showDetailsView(currentWeather: currentWeather)
                 }
             }).disposed(by: disposeBag)
+        
+        // List of forecast days
+        currentWeatherViewModel.cityRowItems
+            .bind(to: tableView.rx.items) { (tableView, index, rowViewModel) -> UITableViewCell in
+                guard let cellIdentifier = rowViewModel.cellIdentifier,
+                      cellIdentifier.count > 0,
+                      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? BaseTableViewCell else { return UITableViewCell() }
+                cell.setupCell(rowViewModel: rowViewModel)
+                return cell
+            }.disposed(by: disposeBag)
     }
     
     private func showDetailsView(currentWeather: CurrentWeather) {
@@ -124,6 +148,19 @@ class CurrentWeatherViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func searchButtonClicked(_ sender: Any) {
-       print("searchButton Clicked")
+        
+        guard let search = searchTextField.text, search != "" else {
+            return
+        }
+        currentWeatherViewModel.searchCityData(city: search)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension CurrentWeatherViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

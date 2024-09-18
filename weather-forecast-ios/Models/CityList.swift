@@ -1,5 +1,5 @@
 //
-//  SearchCities.swift
+//  CityList.swift
 //  weather-forecast-ios
 //
 //  Created by Laxman on 18/09/24.
@@ -14,4 +14,4 @@ struct SearchCity: Codable {
     let url: String
 }
 
-typealias SearchCities = [SearchCity]
+typealias CityList = [SearchCity]

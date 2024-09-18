@@ -34,6 +34,9 @@
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Fuq-In-JWK"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="DZ7-zZ-kjh">
                                                 <rect key="frame" x="328" y="11" width="17" height="18"/>
@@ -112,10 +115,15 @@
                                             <action selector="forecastWeatherButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="517-m4-X6e"/>
                                         </connections>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-yg-KEq">
+                                        <rect key="frame" x="0.0" y="265" width="393" height="450"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="9GZ-aF-EmV" firstAttribute="top" secondItem="LJX-H3-46f" secondAttribute="bottom" constant="8" id="7Pf-NH-dsA"/>
+                                    <constraint firstItem="DM2-yg-KEq" firstAttribute="top" secondItem="9GZ-aF-EmV" secondAttribute="bottom" constant="8" id="HAa-s5-lEj"/>
                                     <constraint firstItem="dlW-7Z-B2V" firstAttribute="top" secondItem="h6s-1P-zGb" secondAttribute="bottom" constant="8" id="ICL-Qd-qBf"/>
                                     <constraint firstItem="LJX-H3-46f" firstAttribute="centerX" secondItem="9rh-cr-EYu" secondAttribute="centerX" id="K9M-73-ZIB"/>
                                     <constraint firstItem="BsP-ZE-9Zj" firstAttribute="centerX" secondItem="9rh-cr-EYu" secondAttribute="centerX" id="PPJ-Av-sC9"/>
@@ -123,9 +131,12 @@
                                     <constraint firstItem="9GZ-aF-EmV" firstAttribute="centerX" secondItem="9rh-cr-EYu" secondAttribute="centerX" id="WlW-2L-chl"/>
                                     <constraint firstItem="h6s-1P-zGb" firstAttribute="leading" secondItem="9rh-cr-EYu" secondAttribute="leading" constant="16" id="arq-If-6Be"/>
                                     <constraint firstItem="BsP-ZE-9Zj" firstAttribute="top" secondItem="dlW-7Z-B2V" secondAttribute="bottom" constant="8" id="ayi-D3-532"/>
+                                    <constraint firstAttribute="bottom" secondItem="DM2-yg-KEq" secondAttribute="bottom" id="eDa-i6-w20"/>
                                     <constraint firstItem="pYb-Cr-6pR" firstAttribute="centerX" secondItem="9rh-cr-EYu" secondAttribute="centerX" id="fRg-k6-fE6"/>
                                     <constraint firstAttribute="trailing" secondItem="h6s-1P-zGb" secondAttribute="trailing" constant="16" id="iUI-RU-8rj"/>
+                                    <constraint firstAttribute="trailing" secondItem="DM2-yg-KEq" secondAttribute="trailing" id="mhy-7x-vTK"/>
                                     <constraint firstItem="h6s-1P-zGb" firstAttribute="top" secondItem="9rh-cr-EYu" secondAttribute="top" constant="20" id="nyP-cD-cnK"/>
+                                    <constraint firstItem="DM2-yg-KEq" firstAttribute="leading" secondItem="9rh-cr-EYu" secondAttribute="leading" id="qfs-qX-XVR"/>
                                     <constraint firstItem="pYb-Cr-6pR" firstAttribute="top" secondItem="BsP-ZE-9Zj" secondAttribute="bottom" constant="8" id="rdr-ES-eTa"/>
                                     <constraint firstItem="LJX-H3-46f" firstAttribute="top" secondItem="pYb-Cr-6pR" secondAttribute="bottom" constant="8" id="xQ1-8e-YdF"/>
                                 </constraints>
@@ -146,6 +157,8 @@
                         <outlet property="conditionLabel" destination="pYb-Cr-6pR" id="Ytv-cn-jLQ"/>
                         <outlet property="forecastWeatherButton" destination="9GZ-aF-EmV" id="17J-ww-2h3"/>
                         <outlet property="locationLabel" destination="dlW-7Z-B2V" id="fii-iO-tyN"/>
+                        <outlet property="searchTextField" destination="g2K-L8-kvd" id="quM-tC-ylT"/>
+                        <outlet property="tableView" destination="DM2-yg-KEq" id="t4v-um-FUS"/>
                         <outlet property="temperatureLabel" destination="BsP-ZE-9Zj" id="C8S-z6-8wd"/>
                     </connections>
                 </viewController>
