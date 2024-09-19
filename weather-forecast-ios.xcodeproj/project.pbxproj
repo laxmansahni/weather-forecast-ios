@@ -13,7 +13,6 @@
 		4B1519B32C9890F000AA8A47 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1519A12C9890F000AA8A47 /* ConnectionManager.swift */; };
 		4B1519B42C9890F000AA8A47 /* RxSwift+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1519A22C9890F000AA8A47 /* RxSwift+Extension.swift */; };
 		4B1519B62C9890F000AA8A47 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1519A52C9890F000AA8A47 /* CoreDataStack.swift */; };
-		4B1519BD2C9891FB00AA8A47 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 4B1519BC2C9891FB00AA8A47 /* RxGesture */; };
 		4B1CFA322C9AB243001855FA /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CFA312C9AB243001855FA /* CityList.swift */; };
 		4B2604A12C99829B00B43451 /* weather-forecast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B26049F2C99829B00B43451 /* weather-forecast.xcdatamodeld */; };
 		4B473CAE2C9A78D100FA963E /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B473CAB2C9A78D100FA963E /* ForecastTableViewCell.swift */; };
@@ -36,6 +35,9 @@
 		4BAB1D022C9922C800B92992 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB1D012C9922C800B92992 /* CurrentWeatherViewModel.swift */; };
 		4BAB1D052C99558900B92992 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4BAB1D042C99558900B92992 /* SDWebImage */; };
 		4BAB1D082C99609E00B92992 /* SwiftLoader in Frameworks */ = {isa = PBXBuildFile; productRef = 4BAB1D072C99609E00B92992 /* SwiftLoader */; };
+		4BCDB47B2C9BCEE8000A8772 /* WeatherDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDB47A2C9BCEE8000A8772 /* WeatherDetailsViewController.swift */; };
+		4BCDB47D2C9BD0FB000A8772 /* WeatherDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDB47C2C9BD0FB000A8772 /* WeatherDetailsViewModel.swift */; };
+		4BCDB4802C9BD1AB000A8772 /* FittedSheets in Frameworks */ = {isa = PBXBuildFile; productRef = 4BCDB47F2C9BD1AB000A8772 /* FittedSheets */; };
 		4BD3312C2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3312A2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift */; };
 		4BD3312D2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3312B2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift */; };
 		4BFF01162C989FD5009DE8CF /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF01152C989FD5009DE8CF /* ServiceType.swift */; };
@@ -68,6 +70,8 @@
 		4B7393D62C987C1600C64DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BAB1CFF2C99199B00B92992 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4BAB1D012C9922C800B92992 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		4BCDB47A2C9BCEE8000A8772 /* WeatherDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewController.swift; sourceTree = "<group>"; };
+		4BCDB47C2C9BD0FB000A8772 /* WeatherDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewModel.swift; sourceTree = "<group>"; };
 		4BD3312A2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherCD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4BD3312B2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BFF01152C989FD5009DE8CF /* ServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
@@ -81,8 +85,8 @@
 			files = (
 				4B7393E32C987DF400C64DE0 /* RxSwift in Frameworks */,
 				4BAB1D082C99609E00B92992 /* SwiftLoader in Frameworks */,
+				4BCDB4802C9BD1AB000A8772 /* FittedSheets in Frameworks */,
 				4B7393E12C987DF400C64DE0 /* RxCocoa in Frameworks */,
-				4B1519BD2C9891FB00AA8A47 /* RxGesture in Frameworks */,
 				4B7393DE2C987D2D00C64DE0 /* Alamofire in Frameworks */,
 				4BAB1D052C99558900B92992 /* SDWebImage in Frameworks */,
 			);
@@ -104,6 +108,7 @@
 		4B15199C2C9890F000AA8A47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4BCDB47A2C9BCEE8000A8772 /* WeatherDetailsViewController.swift */,
 				4B5F51022C99DD7200D51FFB /* ForecastDaysViewController.swift */,
 				4B7393CC2C987C1400C64DE0 /* CurrentWeatherViewController.swift */,
 			);
@@ -135,6 +140,7 @@
 		4B1519AA2C9890F000AA8A47 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4BCDB47C2C9BD0FB000A8772 /* WeatherDetailsViewModel.swift */,
 				4B5F51002C99DB2C00D51FFB /* ForecastDaysViewModel.swift */,
 				4B1519A52C9890F000AA8A47 /* CoreDataStack.swift */,
 				4BAB1D012C9922C800B92992 /* CurrentWeatherViewModel.swift */,
@@ -226,9 +232,9 @@
 				4B7393DD2C987D2D00C64DE0 /* Alamofire */,
 				4B7393E02C987DF400C64DE0 /* RxCocoa */,
 				4B7393E22C987DF400C64DE0 /* RxSwift */,
-				4B1519BC2C9891FB00AA8A47 /* RxGesture */,
 				4BAB1D042C99558900B92992 /* SDWebImage */,
 				4BAB1D072C99609E00B92992 /* SwiftLoader */,
+				4BCDB47F2C9BD1AB000A8772 /* FittedSheets */,
 			);
 			productName = "weather-forecast-ios";
 			productReference = 4B7393C52C987C1400C64DE0 /* weather-forecast-ios.app */;
@@ -261,9 +267,9 @@
 			packageReferences = (
 				4B7393DC2C987D2D00C64DE0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4B7393DF2C987DF400C64DE0 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				4B1519BB2C9891FB00AA8A47 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				4BAB1D032C99558900B92992 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				4BAB1D062C99609E00B92992 /* XCRemoteSwiftPackageReference "SwiftLoader" */,
+				4BCDB47E2C9BD1AB000A8772 /* XCRemoteSwiftPackageReference "FittedSheets" */,
 			);
 			productRefGroup = 4B7393C62C987C1400C64DE0 /* Products */;
 			projectDirPath = "";
@@ -296,6 +302,7 @@
 			files = (
 				4B1519B62C9890F000AA8A47 /* CoreDataStack.swift in Sources */,
 				4BFF01182C98A488009DE8CF /* Constants.swift in Sources */,
+				4BCDB47D2C9BD0FB000A8772 /* WeatherDetailsViewModel.swift in Sources */,
 				4BAB1D002C99199B00B92992 /* CurrentWeather.swift in Sources */,
 				4BD3312C2C9984F800D21CEB /* WeatherCD+CoreDataClass.swift in Sources */,
 				4BD3312D2C9984F800D21CEB /* WeatherCD+CoreDataProperties.swift in Sources */,
@@ -312,6 +319,7 @@
 				4B5F51012C99DB2C00D51FFB /* ForecastDaysViewModel.swift in Sources */,
 				4B1519B42C9890F000AA8A47 /* RxSwift+Extension.swift in Sources */,
 				4B1519972C988F7100AA8A47 /* APIService.swift in Sources */,
+				4BCDB47B2C9BCEE8000A8772 /* WeatherDetailsViewController.swift in Sources */,
 				4B7393CB2C987C1400C64DE0 /* SceneDelegate.swift in Sources */,
 				4BFF01162C989FD5009DE8CF /* ServiceType.swift in Sources */,
 				4BAB1D022C9922C800B92992 /* CurrentWeatherViewModel.swift in Sources */,
@@ -540,14 +548,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4B1519BB2C9891FB00AA8A47 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.4;
-			};
-		};
 		4B7393DC2C987D2D00C64DE0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -580,14 +580,17 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		4BCDB47E2C9BD1AB000A8772 /* XCRemoteSwiftPackageReference "FittedSheets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gordontucker/FittedSheets.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4B1519BC2C9891FB00AA8A47 /* RxGesture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4B1519BB2C9891FB00AA8A47 /* XCRemoteSwiftPackageReference "RxGesture" */;
-			productName = RxGesture;
-		};
 		4B7393DD2C987D2D00C64DE0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4B7393DC2C987D2D00C64DE0 /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -612,6 +615,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BAB1D062C99609E00B92992 /* XCRemoteSwiftPackageReference "SwiftLoader" */;
 			productName = SwiftLoader;
+		};
+		4BCDB47F2C9BD1AB000A8772 /* FittedSheets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BCDB47E2C9BD1AB000A8772 /* XCRemoteSwiftPackageReference "FittedSheets" */;
+			productName = FittedSheets;
 		};
 /* End XCSwiftPackageProductDependency section */
 

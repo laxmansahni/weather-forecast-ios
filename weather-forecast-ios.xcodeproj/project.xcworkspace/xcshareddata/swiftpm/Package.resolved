@@ -1,5 +1,5 @@
 {
-  "originHash" : "78918e5314dfb69b58be13c40bc5ca7b6ceaf2b3953f54bd9591dcd8628b6603",
+  "originHash" : "84a50a00245ef1d4965b5f75f4dcbbd47af054ff02a1bc7943f6244562f0ec36",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -11,12 +11,12 @@
       }
     },
     {
-      "identity" : "rxgesture",
+      "identity" : "fittedsheets",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RxSwiftCommunity/RxGesture",
+      "location" : "https://github.com/gordontucker/FittedSheets.git",
       "state" : {
-        "revision" : "1b137c576b4aaaab949235752278956697c9e4a0",
-        "version" : "4.0.4"
+        "revision" : "5d7f5a6307ad510aa05de5a4a16ac40846d3b2d3",
+        "version" : "2.6.1"
       }
     },
     {

@@ -30,7 +30,7 @@ We will be building this app using Xcode 15.4 with Swift 5.0. This app also cons
 
 - RxSwift (Reactive library in Swift [Installation instructions](https://github.com/ReactiveX/RxSwift#installation).)
 - RxCocoa (Reactive library for UIKit in Swift [Installation instructions](https://github.com/ReactiveX/RxSwift#installation).)
-- RxGesture (Reactive Gesture library for UIKit in Swift [Installation instructions](https://github.com/RxSwiftCommunity/RxGesture#installation).)
+- FittedSheets (Bottom sheets library in Swift [Installation instructions](https://github.com/gordontucker/FittedSheets#package-management).)
 - Alamofire (Network library for API calls in Swift [Installation instructions](https://github.com/Alamofire/Alamofire#installation).)
 - SDWebImage (Async image downloader library with cache support in Swift [Installation instructions](https://github.com/SDWebImage/SDWebImage#installation).)
 - SwiftLoader (Activity indicator library in Swift [Installation instructions](https://github.com/leoru/SwiftLoader#install).)

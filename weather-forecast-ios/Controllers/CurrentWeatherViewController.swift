@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import SDWebImage
 import SwiftLoader
+import FittedSheets
 
 class CurrentWeatherViewController: UIViewController {
     
@@ -81,11 +82,14 @@ class CurrentWeatherViewController: UIViewController {
                     strongSelf.showErrorAlert(error: error)
                     break
                 case .reloadCities:
+                    strongSelf.hideWeatherView()
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
                 case .showWeather(let currentWeather):
                     self?.showDetailsView(currentWeather: currentWeather)
+                case .showDetailsWeather(let city):
+                    self?.showDetailsSheetView(city: city)
                 }
             }).disposed(by: disposeBag)
         
@@ -98,6 +102,10 @@ class CurrentWeatherViewController: UIViewController {
                 cell.setupCell(rowViewModel: rowViewModel)
                 return cell
             }.disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.bind {[weak self] (indexPath) in
+            self?.currentWeatherViewModel.handleCityTableSelection(indexPath)
+        }.disposed(by: disposeBag)
     }
     
     private func showDetailsView(currentWeather: CurrentWeather) {
@@ -105,6 +113,24 @@ class CurrentWeatherViewController: UIViewController {
         temperatureLabel.text = "\(currentWeather.current.tempC)°C"
         conditionLabel.text = "\(currentWeather.current.condition.text)"
         conditionIcon.sd_setImage(with: URL(string: "https:\(currentWeather.current.condition.icon)"), placeholderImage: UIImage(#imageLiteral(resourceName: "partly_cloudy")))
+    }
+    
+    private func showDetailsSheetView(city: SearchCity) {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "WeatherDetailsViewController") as? WeatherDetailsViewController else { return }
+        controller.weatherDetailsViewModel = WeatherDetailsViewModel(city: city)
+        let sheetController = SheetViewController(
+            controller: controller,
+            sizes: [.percent(0.53)],
+            options: SheetOptions(
+                pullBarHeight: 0,
+                shouldExtendBackground: true,
+                useFullScreenMode: true,
+                shrinkPresentingViewController: false))
+        sheetController.dismissOnPull = false
+        sheetController.dismissOnOverlayTap = true
+        sheetController.allowPullingPastMaxHeight = false
+        sheetController.allowPullingPastMinHeight = false
+        self.present(sheetController, animated: true, completion: nil)
     }
     
     private func configureShowLoader() {
@@ -124,6 +150,7 @@ class CurrentWeatherViewController: UIViewController {
         conditionLabel.isHidden = false
         conditionIcon.isHidden = false
         forecastWeatherButton.isHidden = false
+        tableView.isHidden = true
     }
     
     private func hideWeatherView() {
@@ -132,6 +159,7 @@ class CurrentWeatherViewController: UIViewController {
         conditionLabel.isHidden = true
         conditionIcon.isHidden = true
         forecastWeatherButton.isHidden = true
+        tableView.isHidden = false
     }
     
     private func showErrorAlert(error: Error){
@@ -145,8 +173,7 @@ class CurrentWeatherViewController: UIViewController {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "ForecastDaysViewController") as? ForecastDaysViewController else { return }
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
-    // MARK: - Actions
+
     @IBAction func searchButtonClicked(_ sender: Any) {
         
         guard let search = searchTextField.text, search != "" else {

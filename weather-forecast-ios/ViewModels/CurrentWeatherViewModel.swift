@@ -14,7 +14,9 @@ class CurrentWeatherViewModel {
     
     // default City = Dubai
     private let defaultCity = "Dubai"
+    private var cityList = [SearchCity]()
     var cityRowItems = BehaviorRelay<[RowViewModel]>(value: [])
+    var selectedCity: SearchCity?
     var uiActions = PublishSubject<UIActionType>()
     
     public var isConnected: Bool = false
@@ -45,6 +47,7 @@ class CurrentWeatherViewModel {
                     self.uiActions.onNext(.showError(error: error!))
                     return
                 }
+                self.cityList = cities
                 self.prepareCityRowItems(cityList: cities)
                 self.uiActions.onNext(.reloadCities)
             }
@@ -59,11 +62,20 @@ class CurrentWeatherViewModel {
         cityRowItems.accept(rowViewModels)
     }
     
+    func handleCityTableSelection(_ indexPath: IndexPath) {
+        selectedCity = cityList[indexPath.row]
+        guard let city = selectedCity else {
+            return
+        }
+        uiActions.onNext(.showDetailsWeather(city: city))
+    }
+    
     enum UIActionType {
         case showLoading
         case hideLoading
         case showError(error: Error)
         case reloadCities
         case showWeather(currentWeather: CurrentWeather)
+        case showDetailsWeather(city: SearchCity)
     }
 }
